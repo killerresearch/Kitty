@@ -242,13 +242,22 @@
   .step p{margin:0;color:var(--ink-soft);font-weight:600;font-size:15.5px}
 
   /* buy */
-  .buy-soon{
-    display:inline-flex;align-items:center;
-    background:var(--surface2);color:var(--ink-soft);
-    border:2px dashed var(--line);border-radius:14px;
-    padding:16px 26px;font-weight:900;font-size:17px;
-    cursor:not-allowed;user-select:none;min-height:44px;
+  .buy-layout{display:flex;gap:20px;flex-wrap:wrap;align-items:stretch}
+  .buy-action{flex:1 1 280px;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:14px}
+  .buy-note{margin:0;color:var(--ink-soft);font-weight:600;font-size:15px;max-width:42ch}
+  .snapshot-card{
+    flex:1 1 320px;max-width:460px;
+    background:var(--surface);border:2px solid var(--line);border-radius:var(--radius);
+    padding:22px;box-shadow:var(--shadow);
   }
+  .snapshot-card h3{margin:0 0 4px;font-size:18px;font-weight:900}
+  .snapshot-meta{margin:0 0 16px;color:var(--ink-soft);font-weight:700;font-size:13.5px}
+  .snapshot-rows{display:grid;gap:12px}
+  .snapshot-row{display:flex;justify-content:space-between;gap:16px;border-top:1px solid var(--line);padding-top:12px}
+  .snapshot-row:first-child{border-top:none;padding-top:0}
+  .snapshot-row dt{color:var(--ink-soft);font-weight:700;font-size:14.5px}
+  .snapshot-row dd{margin:0;font-weight:900;font-size:14.5px;text-align:right}
+  @media (max-width:640px){ .snapshot-card{max-width:none} }
 
   footer{
     margin-top:72px;border-top:3px solid var(--line);background:var(--surface2);
@@ -392,9 +401,24 @@
 
   <section id="buy">
     <p class="kicker">Buy</p>
-    <h2>The token is still brewing</h2>
-    <p class="sub">Wizard Kitty hasn't launched a token yet. When he does, this is where you'll find him — on SupaNova.</p>
-    <div class="buy-soon" aria-disabled="true">Buy Wizard Kitty on SupaNova · Coming Soon</div>
+    <h2>$WK is live on SupaNova</h2>
+    <p class="sub">Wizard Kitty's token is live now — grab $WK through the official SupaNova launch page.</p>
+    <div class="buy-layout">
+      <div class="buy-action">
+        <a class="btn btn-primary" href="https://launch.supanova.app/coin/wizard-kitty-d4323609a6" target="_blank" rel="noopener">Buy Wizard Kitty on SupaNova</a>
+        <p class="buy-note">Opens the official SupaNova coin page in a new tab.</p>
+      </div>
+      <div class="snapshot-card" aria-label="SupaNova snapshot">
+        <h3>SupaNova Snapshot</h3>
+        <p class="snapshot-meta">Snapshot · 20 Nov 2026, 04:13 WIB</p>
+        <dl class="snapshot-rows">
+          <div class="snapshot-row"><dt>Ticker</dt><dd>$WK</dd></div>
+          <div class="snapshot-row"><dt>Total supply</dt><dd>1B</dd></div>
+          <div class="snapshot-row"><dt>Bonding curve</dt><dd>1.8% — $360 of $20,231 raised</dd></div>
+          <div class="snapshot-row"><dt>Transactions</dt><dd>4 (all buys)</dd></div>
+        </dl>
+      </div>
+    </div>
   </section>
 
   <section id="summon">
